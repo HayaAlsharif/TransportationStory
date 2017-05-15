@@ -1,0 +1,52 @@
+<html>
+  <head>
+
+ <link rel="stylesheet" type="text/css" href="styleguide/style.css">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+ <link rel="stylesheet" type="text/css" href="style.css">
+ <link rel="stylesheet" type="text/css" href="ev.css">
+ </head>
+
+
+
+
+  <body>
+<div class="styleguide">
+<div class="container">
+
+
+<h1 style="font-size: 30px; color:green; text-align: center;">Cars as Air Pollutants</h1>
+<h3>Car buyers</h3>
+<img src="transporation/ppl.jpg" style="width: 750px; height: 550px; margin-left: 200px;">
+<h3>World Map to show the statistics of registered cars:</h3>
+<img src="transporation/EVstat.png" style="width: 750px; height: 500px; margin-left: 200px;">
+<h3>Transportation emissions by mood of transportation</h3>
+<img src="transporation/kindsofcar.jpg" style="width: 750px; height: 600px; margin-left: 200px;">
+<h3>petrol and diesel vehicles as pollutants:</h3>
+<img src="transporation/co2.jpg" style="width: 750px; height: 900px; margin-left: 200px;">
+<h3>The older the cars get the more pollution it preduce</h3>
+<img src="transporation/oldcars.jpg" style="width: 750px; height: 500px; margin-left: 200px;">
+<h3>Gorgia Case</h3>
+<img src="transporation/gorgia.jpg" style="width: 750px; height: 600px; margin-left: 200px;">
+<h3>Number of trees needed to reduce the effect:</h3>
+<img src="transporation/carbon.jpg" style="width: 750px; height: 500px; margin-left: 200px;">
+<br>
+<br>
+<br>
+<h1 style="font-size: 30px; color:green; text-align: center;">Solution</h1>
+<h3>History of electrical cars:</h3>
+<img src="transporation/history.jpg" style="width: 750px; height: 1100px; margin-left: 200px;">
+<h3>facts of electrical cars:</h3>
+<img src="transporation/elec.jpg" style="width: 750px; height: 1100px; margin-left: 200px;">
+<h3>Benefits of electrical cars:</h3>
+<img src="transporation/cons.jpg" style="width: 750px; height: 1100px; margin-left: 200px;">
+
+
+</div>
+ 
+  </div>
+  </body>
+  </html>
