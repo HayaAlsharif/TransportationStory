@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html >
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+
+
+
+<script src="http://d3js.org/d3.v3.min.js"></script>
+
+<script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+
+<head>
+  <meta charset="UTF-8">
+
+  <title>electrical cars</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel='stylesheet prefetch' href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css'>
+
+      <link rel="stylesheet" href="hs.css/style.css">
+
+      <link rel="stylesheet" href="css/style.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+      <link rel="stylesheet" href="chart.css/style.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+
+      <script src="http://d3js.org/d3.v3.min.js"></script>
+
+      <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+      <style>
+
+      #thumbs
+      {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      height: 50%;
+      width: auto;
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 30px 100px;
+      }
+
+      .history-block {
+        height: 100%;
+        width: 300px;
+        background-color: #cdcdcd;
+        margin: 0 -2px;
+        border-right: 1px solid #fff;
+        display: inline-block;
+        font-family: 'roboto condensed', sans-serif;
+        font-size:60px;
+        font-weight: 100;
+        color: #FFF;
+        cursor: pointer;
+        box-shadow: 2px 5px 20px rgba(0,0,0,0.3);
+        transition: width 0.2s;
+      }
+
+      .history-block:last-of-type {
+        border-right: none;
+      }
+
+      .cover {
+        width: 100%;
+        height: 100%;
+        transition: background .5s;
+        background: rgba(0,0,0,0.3);
+      }
+
+      .cover:hover {
+        width: 100%;
+        height: 100%;
+        transition: background .5s;
+        background: rgba(0,0,0,0.3);
+      }
+
+      .year {
+        position: absolute;
+          top: 0px;
+          font-size: 30px;
+        font-weight:500;
+          margin: 40px 30px;
+      }
+
+      .title {
+        position: absolute;
+        display: block;
+        width: 260px;
+          top: 60px;
+          font-size: 15px;
+          margin: 30px;
+        white-space: normal;
+        transition: width 0.2s;
+        text-align: justify;
+        }
+
+      .timeline {
+        display:none;
+        position: absolute;
+        bottom: 80px;
+          font-size: 20px;
+          margin: 20px;
+        transition: display 0.8s;
+      }
+
+      .timeline ul {
+        margin: 0;
+      padding: 0;
+      list-style-type: none;
+      text-align: center;
+      }
+
+      .timeline ul li {
+        display: inline;
+        font-size: 15px;
+        font-weight: 100;
+        padding: 0px 5px;
+      }
+
+      .timeline ul li {
+        display: inline;
+        font-size: 15px;
+        font-weight: 100;
+        padding: 0px 5px;
+      }
+
+      .timeline ul li:before {
+        font-family: FontAwesome;
+        font-style: normal;
+        font-weight: normal;
+        color: rgba(255,255,255,0.5);
+        content: '\f10c';
+        position: absolute;
+        top: 30px;
+        margin-left:10px;
+        transition: all 0.5s;
+      }
+
+      .timeline ul li:after {
+        content: '';
+        position: absolute;
+        top: 40px;
+        margin-left:-10px;
+        width: 36px;
+        height:2px;
+        border: 1px solid rgba(255,255,255,0.5);
+        transition: all 0.5s;
+      }
+
+      .timelineYear, .timelineYear:hover {
+        text-decoration: none;
+        color: #fff;
+        transition: all 0.8s;
+      }
+
+      .timeline ul li:hover:before {
+        content: '\f111';
+        color: #ffffff;
+        font-size: 18px;
+        transition: all 0.5s;
+        top: 29px;
+        margin-left:9px
+      }
+
+      .timeline ul li:hover:after {
+        content: '';
+        position: absolute;
+        top: 40px;
+        margin-left:-10px;
+        width: 36px;
+        height:2px;
+        border: 1px solid #fff;
+        transition: all 0.5s;
+      }
+
+      .timeline ul li:hover .timelineYear {
+        position: static;
+        top:-10px;
+      }
+
+      .bg1 {
+        background: url('1st.jpg');
+        background-size:cover;
+      }
+
+      .bg2 {
+        background: url('2nd.jpg');
+        background-size:cover;
+      }
+
+      .bg3 {
+        background: url('3rd.jpg');
+        background-size:cover;
+      }
+
+      .bg4{
+        background: url('4th.jpeg');
+        background-size:cover;
+      }
+
+      .bg5 {
+        background: url('5th.jpg');
+        background-size:cover;
+      }
+      .bg6 {
+        background: url('6th.jpg');
+        background-size:cover;
+      }
+
+      .bg7 {
+        background: url('7th.jpg');
+        background-size:cover;
+      }
+      .bg8 {
+        background: url('7th.jpg');
+        background-size:cover;
+      }
+      .bg9 {
+        background: url('9th.jpg');
+        background-size:cover;
+      }
+      .bg10 {
+        background: url('10th.jpg');
+        background-size:cover;
+      }
+      .bg11 {
+        background: url('11th.jpg');
+        background-size:cover;
+      }
+      .bg12 {
+        background: url('12th.jpg');
+        background-size:cover;
+      }
+      .bg13 {
+        background: url('13th.png');
+        background-size:cover;
+      }
+      .bg14 {
+        background: url('14th.png');
+        background-size:cover;
+      }
+      .bg15 {
+        background: url('15th.jpeg');
+        background-size:cover;
+      }
+      .bg16 {
+        background: url('16th.jpg');
+        background-size:cover;
+      }
+      .bg17 {
+        background: url('17th.jpg');
+        background-size:cover;
+      }
+      .bg18 {
+        background: url('18th.jpeg');
+        background-size:cover;
+      }
+      .bg19 {
+        background: url('19th.jpg');
+        background-size:cover;
+      }
+      .bg20 {
+        background: url('20th.png');
+        background-size:cover;
+      }
+      .bg21 {
+        background: url('21th.jpg');
+        background-size:cover;
+      }
+      .bg22 {
+        background: url('22th.png');
+        background-size:cover;
+      }
+
+
+
+
+.d3chart{
+  width: 200px;
+  height: 500px;
+}
+
+       .axis {
+
+         font: 20px sans-serif;
+
+       }
+
+
+
+       .axis path,
+
+       .axis line {
+
+         fill: none;
+
+         stroke: #000;
+
+         shape-rendering: crispEdges;
+
+       }
+
+       .rectangle {
+
+        fill: green ;
+
+      }
+
+      .rectangle:hover {
+
+
+
+        fill: grey;
+
+      }
+
+      .textlabel{
+
+            font-family: Helvetica, Arial, sans-serif;
+
+            font-size:14px;
+
+            text-anchor: left;
+
+
+
+        }
+
+        .d3-tip {
+
+      line-height: 1;
+
+      font-weight: bold;
+
+      padding: 12px;
+
+      background: rgba(0, 0, 0, 0.8);
+
+      color: #fff;
+
+      border-radius: 2px;
+
+      }
+
+
+
+      /* Creates a small triangle extender for the tooltip */
+
+      .d3-tip:after {
+
+      box-sizing: border-box;
+
+      display: inline;
+
+      font-size: 10px;
+
+      width: 100%;
+
+      line-height: 1;
+
+      color: rgba(0, 0, 0, 0.9);
+
+      content: "\25BC";
+
+      position: absolute;
+
+      text-align: center;
+
+      }
+
+
+
+      /* Style northward tooltips differently */
+
+      .d3-tip.n:after {
+
+      margin: -1px 0 0 0;
+
+      top: 100%;
+
+      left: 0;
+
+      }
+
+
+
+      </style>
+
+
+</head>
+
+<body>
+
+<div class="slides">
+
+
+  <div class="slide" id="1">
+    <div class="country-wrap">
+
+  <div class="container">
+  <div class="row"><img src="images/title.png" style=" width:400px; height: 300px; margin-left: -800px; margin-top:-50px;"></div>
+<h2 style="margin-top: 250px; margin-left: -700px;">Whats car buyers care about most ?</h2>
+    <div class="row">
+      <div class="chart-wrapper" style="margin-left: 250px; margin-top: -400px;"></div>
+
+   <script src='http://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js'></script>
+
+      <script src="chart.js/index.js"></script>
+
+    </div>
+
+  <!--<div class="mountain-1"></div>
+  <div class="mountain-2"></div>-->
+
+  <div class="sun"></div>
+  <div class="grass"></div>
+  <div class="street">
+    <div class="car">
+    <!--<div class="car-base"></div>-->
+    <div class="car-body">
+      <div class="car-top-back">
+        <div class="back-curve"></div>
+      </div>
+      <div class="car-gate"></div>
+      <div class="car-top-front">
+        <div class="wind-sheild"></div>
+      </div>
+      <div class="bonet-front"></div>
+      <div class="stepney"></div>
+    </div>
+    <div class="boundary-tyre-cover">
+      <div class="boundary-tyre-cover-back-bottom"></div>
+      <div class="boundary-tyre-cover-inner"></div>
+    </div>
+    <div class="tyre-cover-front">
+      <div class="boundary-tyre-cover-inner-front"></div>
+    </div>
+    <div class="base-axcel">
+
+    </div>
+    <div class="front-bumper"></div>
+    <div class="tyre">
+      <div class="gap"></div>
+    </div>
+    <div class="tyre front">
+      <div class="gap"></div>
+    </div>
+    <div class="car-shadow"></div>
+  </div>
+  </div>
+  <div class="street-stripe"></div>
+  <div class="hill">
+    <!--<div class="tree-1">
+      <div class="branch-1"></div>
+      <div class="branch-2"></div>
+      <div class="branch-3"></div>
+    </div>
+    <div class="tree-1">
+    <div class="branch"></div>
+    <div class="trunk"></div>
+  </div>-->
+  </div>
+
+</div>
+
+</div>
+  </div>
+
+
+
+  <div class="slide" id="2">
+     <div class="country-wrap">
+
+  <div class="container">
+    <div class="row" style="margin-left: 11%; margin-right: 11%;">
+<script type='text/javascript' src='http://35.157.8.133/javascripts/api/viz_v1.js'></script><div class='tableauPlaceholder' style='width: 1024px; height: 575px;'><object class='tableauViz' width='1024' height='575' style='display:none; '><param name='host_url' value='http%3A%2F%2F35.157.8.133%2F' /> <param name='site_root' value='' /><param name='name' value='NumberofVehicalsinUseWorldwide&#47;Sheet1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='showShareOptions' value='true' /></object></div>
+</div>
+    </div>
+
+  <!--<div class="mountain-1"></div>
+  <div class="mountain-2"></div>-->
+
+  <div class="grass"></div>
+  <div class="street">
+    <div class="car">
+    <!--<div class="car-base"></div>-->
+    <div class="car-body">
+      <div class="car-top-back">
+        <div class="back-curve"></div>
+      </div>
+      <div class="car-gate"></div>
+      <div class="car-top-front">
+        <div class="wind-sheild"></div>
+      </div>
+      <div class="bonet-front"></div>
+      <div class="stepney"></div>
+    </div>
+    <div class="boundary-tyre-cover">
+      <div class="boundary-tyre-cover-back-bottom"></div>
+      <div class="boundary-tyre-cover-inner"></div>
+    </div>
+    <div class="tyre-cover-front">
+      <div class="boundary-tyre-cover-inner-front"></div>
+    </div>
+    <div class="base-axcel">
+
+    </div>
+    <div class="front-bumper"></div>
+    <div class="tyre">
+      <div class="gap"></div>
+    </div>
+    <div class="tyre front">
+      <div class="gap"></div>
+    </div>
+    <div class="car-shadow"></div>
+  </div>
+  </div>
+  <div class="street-stripe"></div>
+  <div class="hill">
+    <!--<div class="tree-1">
+      <div class="branch-1"></div>
+      <div class="branch-2"></div>
+      <div class="branch-3"></div>
+    </div>
+    <div class="tree-1">
+    <div class="branch"></div>
+    <div class="trunk"></div>
+  </div>-->
+  </div>
+</div>
+</div>
+
+
+  <div class="slide" id="3">
+
+<div class="country-wrap">
+  <h5 style="margin-top: 50px;">Amount of CO2 emissions in some countries</h5>
+
+   <div class="row">
+
+    <div id="d3chart" class="d3chart">
+
+    </div>
+
+   </div>
+
+
+ <div class="grass"></div>
+ <div class="street">
+   <div class="car">
+
+   <div class="car-body">
+     <div class="car-top-back">
+       <div class="back-curve"></div>
+     </div>
+     <div class="car-gate"></div>
+
+     <div class="car-top-front">
+       <div class="wind-sheild"></div>
+     </div>
+     <div class="bonet-front"></div>
+     <div class="stepney"></div>
+   </div>
+   <div class="boundary-tyre-cover">
+     <div class="boundary-tyre-cover-back-bottom"></div>
+     <div class="boundary-tyre-cover-inner"></div>
+   </div>
+   <div class="tyre-cover-front">
+     <div class="boundary-tyre-cover-inner-front"></div>
+   </div>
+   <div class="base-axcel">
+
+   </div>
+   <div class="front-bumper"></div>
+   <div class="tyre">
+     <div class="gap"></div>
+   </div>
+   <div class="tyre front">
+     <div class="gap"></div>
+   </div>
+   <div class="car-shadow"></div>
+ </div>
+ </div>
+ <div class="street-stripe"></div>
+ <div class="hill">
+ </div>
+
+</div>
+  </div>
+
+
+
+  <div class="slide" id="4">
+    <div class="country-wrap">
+
+ <div class="container">
+
+   <div id="container">
+
+   <div id="thumbs" class="row historyWidth" style="margin-top:100px;">
+
+     <div class="history-block bg1">
+       <div class="cover"></div>
+       <div class="year">1832</div>
+       <div class="title">The First Electrical Carriage:
+         <br> Scottish inventor Robert Anderson invents the first electric carriage
+         </div>
+       </div>
+       <div class="history-block bg2">
+         <div class="cover"></div>
+         <div class="year">1859</div>
+         <div class="title">French physicist Gaston Plante invents the rechargeable lead-acid storage battery</div>
+       </div>
+       <div class="history-block bg3">
+         <div class="cover"></div>
+         <div class="year">1881</div>
+         <div class="title">Camille Faure improves the ability to supply current to Plante's storage battery</div>
+       </div>
+       <div class="history-block bg4">
+         <div class="cover"></div>
+         <div class="year">1894</div>
+         <div class="title">A heavy four- wheel electric wagon is invented called the Electrobat. It runs at 15 mph</div>
+       </div>
+       <div class="history-block bg5">
+         <div class="cover"></div>
+         <div class="year">1896</div>
+         <div class="title">The First Electrical taxis:
+           <br> The first electric taxis hit the streets of New York City
+           </div>
+         </div>
+         <div class="history-block bg6">
+           <div class="cover"></div>
+           <div class="year">1899</div>
+           <div class="title">The first land speed record is set by an EV which hits a top speed of 66mph</div>
+         </div>
+         <div class="history-block bg7">
+           <div class="cover"></div>
+           <div class="year">1900</div>
+           <div class="title">The first long distance record is set by an electric car (EV)</div>
+         </div>
+         <div class="history-block bg7">
+           <div class="cover"></div>
+           <div class="year">1895</div>
+           <div class="title">The Torpedo electric racing car is built, boasting a top speed of 120mph</div>
+         </div>
+         <div class="history-block bg11">
+           <div class="cover"></div>
+           <div class="year">1920 - 1930</div>
+           <div class="title">The EV market is in decline and started to disapear due to concerns about their limited convenience, range and power</div>
+         </div>
+
+         <div class="history-block bg13">
+           <div class="cover"></div>
+           <div class="year">1970</div>
+           <div class="title"> The US Department of Energy funds efforts to try to make a cost effective electric car.</div>
+         </div>
+         <div class="history-block bg14">
+           <div class="cover"></div>
+           <div class="year">1982</div>
+           <div class="title">The first modern hybrid car is made at GE Global Research Lab</div>
+         </div>
+         <div class="history-block bg15">
+           <div class="cover"></div>
+           <div class="year">1996</div>
+           <div class="title">General Motors relases the first mass-produced electric car - the EV</div>
+         </div>
+         <div class="history-block bg18">
+           <div class="cover"></div>
+           <div class="year">2010 - 2011</div>
+           <div class="title">Nissan releases the Leaf and Mitsubishi releases the i-MiEV would become the first electric car to reach 10,000 sales and it would go on to break 100,0000 sales in 2014</div>
+         </div>
+         <div class="history-block bg19">
+           <div class="cover"></div>
+           <div class="year">2012</div>
+           <div class="title">Tesla begins building a North American Supercharger network, which Tesla owner can use for free</div>
+         </div>
+         <div class="history-block bg20">
+           <div class="cover"></div>
+           <div class="year">2015</div>
+           <div class="title">Global sales of highway-legal all- electric vehicals passes the 500,0000 unit milestone</div>
+         </div>
+         <div class="history-block bg21">
+           <div class="cover"></div>
+           <div class="year">2016</div>
+           <div class="title">The Tesla Model 3 is unveiled- the electric carmaker's first affordable vehicle</div>
+         </div>
+         <div class="history-block bg22">
+           <div class="cover"></div>
+           <div class="year">Future</div>
+           <div class="title">More cost effective batteries mean that EVs will cost an average of $22,000</div>
+         </div>
+       </div>
+     </div>
+     <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+     <script src="history.js/history.js"></script>
+   </div>
+
+
+    <h2 style="margin-top:30px;" >History of Electrical Cars</h2>
+
+   </div>
+
+ <!--<div class="mountain-1"></div>
+ <div class="mountain-2"></div>-->
+
+ <div class="grass"></div>
+ <div class="street">
+   <div class="car">
+   <!--<div class="car-base"></div>-->
+   <div class="car-body">
+     <div class="car-top-back">
+       <div class="back-curve"></div>
+     </div>
+     <div class="car-gate"></div>
+     <div class="car-top-front">
+       <div class="wind-sheild"></div>
+     </div>
+     <div class="bonet-front"></div>
+     <div class="stepney"></div>
+   </div>
+   <div class="boundary-tyre-cover">
+     <div class="boundary-tyre-cover-back-bottom"></div>
+     <div class="boundary-tyre-cover-inner"></div>
+   </div>
+   <div class="tyre-cover-front">
+     <div class="boundary-tyre-cover-inner-front"></div>
+   </div>
+   <div class="base-axcel">
+
+   </div>
+   <div class="front-bumper"></div>
+   <div class="tyre">
+     <div class="gap"></div>
+   </div>
+   <div class="tyre front">
+     <div class="gap"></div>
+   </div>
+   <div class="car-shadow"></div>
+ </div>
+ </div>
+ <div class="street-stripe"></div>
+ <div class="hill">
+   <!--<div class="tree-1">
+     <div class="branch-1"></div>
+     <div class="branch-2"></div>
+     <div class="branch-3"></div>
+   </div>
+   <div class="tree-1">
+   <div class="branch"></div>
+   <div class="trunk"></div>
+ </div>-->
+ </div>
+</div>
+
+
+<div class="slide" id="1">
+   <div class="country-wrap">
+
+<div class="row" style="margin-top:150px;">
+<h2 style="margin-top:30px;" >The impact of Electrical cars on China, United Kingdom, United States</h2>
+  <span>
+<img src="images/china.svg" id="china" style="width:400px; height:390px;">
+  </span>
+
+  <span>
+<img src="images/united-kingdom.svg" id="china" style="width:400px; height:360px;">
+  </span>
+  <span>
+<img src="images/united-states.png.svg" id="china" style="width:400px; height:400px;">
+  </span>
+
+
+</div>
+
+
+
+
+<div class="grass"></div>
+<div class="street">
+  <div class="car">
+  <!--<div class="car-base"></div>-->
+  <div class="car-body">
+    <div class="car-top-back">
+      <div class="back-curve"></div>
+    </div>
+    <div class="car-gate"></div>
+    <div class="car-top-front">
+      <div class="wind-sheild"></div>
+    </div>
+    <div class="bonet-front"></div>
+    <div class="stepney"></div>
+  </div>
+  <div class="boundary-tyre-cover">
+    <div class="boundary-tyre-cover-back-bottom"></div>
+    <div class="boundary-tyre-cover-inner"></div>
+  </div>
+  <div class="tyre-cover-front">
+    <div class="boundary-tyre-cover-inner-front"></div>
+  </div>
+  <div class="base-axcel">
+
+  </div>
+  <div class="front-bumper"></div>
+  <div class="tyre">
+    <div class="gap"></div>
+  </div>
+  <div class="tyre front">
+    <div class="gap"></div>
+  </div>
+  <div class="car-shadow"></div>
+</div>
+</div>
+<div class="street-stripe"></div>
+<div class="hill">
+  <!--<div class="tree-1">
+    <div class="branch-1"></div>
+    <div class="branch-2"></div>
+    <div class="branch-3"></div>
+  </div>
+  <div class="tree-1">
+  <div class="branch"></div>
+  <div class="trunk"></div>
+</div>-->
+</div>
+</div>
+</div>
+
+
+
+  </div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.12/jquery.mousewheel.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js'></script>
+
+    <script src="hs.js/index.js"></script>
+    <script>
+
+    var margin = {top: 20, right: 20, bottom: 70, left: 40},
+
+    width = 1200 - margin.left - margin.right,
+
+    height = 700 - margin.top - margin.bottom - 90;
+
+
+console.log(width);
+
+
+  // var	parseDate = d3.time.format("%Y").parse;
+
+
+
+  var x = d3.scale.ordinal().rangeRoundBands([0, width], .1);
+
+
+
+
+
+  var y = d3.scale.linear().range([height, 0]);
+
+
+
+  var xAxis = d3.svg.axis()
+
+  .scale(x)
+
+  .orient("bottom");
+
+  // .tickFormat(d3.time.format("%Y"));
+
+
+
+
+
+
+
+  var yAxis = d3.svg.axis()
+
+  .scale(y)
+
+  .orient("left")
+  .ticks(20)
+  .tickFormat(d3.format("s"));
+
+
+
+
+
+
+
+  var svg2 = d3.select(".d3chart").append("svg")
+
+  .attr("width", width )
+
+  .attr("height", height )
+  .attr("viewBox",'0 0 900 700')
+
+  .append("g")
+
+  .attr("transform","translate(" + margin.left + "," + margin.top + ")");
+
+
+
+
+
+
+  var country = [{key:"country", values:[]}];
+
+  var obs_value=[{key:"obs_value", values:[]}];
+
+
+
+  var obj=[];
+
+  console.log(obj);
+
+  d3.json("https://datasource.kapsarc.org/api/records/1.0/search/?dataset=greenhouse-gas-emissions&facet=time_period&facet=country&facet=variable&refine.variable=1A3+-+Transport&refine.time_period=2014&exclude.country=Belgium&exclude.country=Denmark&exclude.country=Estonia&exclude.country=Hungary&exclude.country=Greece&exclude.country=Iceland&exclude.country=Netherlands&exclude.country=Slovak+Republic&exclude.country=Norway&exclude.country=Czech+Republic&exclude.country=Luxembourg&exclude.country=Austria&exclude.country=Portugal&exclude.country=Lithuania&exclude.country=Slovenia&exclude.country=Finland&exclude.country=Latvia", function(error,data)
+
+  {
+
+    console.log(data);
+
+   var value = [];
+
+   var value2 =[];
+
+   var temp;
+
+   var temp2;
+
+
+
+
+
+   $.each( data.records, function( key, val ) {
+
+    console.log(data.records);
+
+    $.each( val.fields, function( key2, val2  ) {
+
+      if (key2=="country" ){
+
+       temp =val2;
+
+       value.push( {  country : val2 }  );}
+
+       if (key2=="obs_value"){
+
+        temp2 =val2;
+
+        value2.push({ obs_value: val2} );
+
+      }
+
+    });
+
+    obj.push({ country : temp ,obs_value: temp2 });
+
+  // console.log(obj[0].time_period);
+
+
+
+  });
+
+
+
+  // console.log(d3.select(obj));
+
+  // var p = d3.select(obj).selectAll(obj)
+
+  //  .data(theData)
+
+  //  .enter()
+
+  //  .append("p")
+
+  //  .text(function (d,i) {
+
+  //    return "i = " + i + " d = "+d;
+
+  //   });
+
+
+  console.log(obj[1].country);
+
+  console.log(obj[1].obs_value);
+
+  console.log(data);
+
+  // .sort(function(a,b){return a - b; }
+
+
+
+  x.domain(obj.map(function(d) {  return d.country; }));
+
+  y.domain([0, d3.max(obj, function(d) { console.log(d.obs_value);return d.obs_value; })]);
+
+  var colors=d3.scale.linear()
+
+  .domain([0,obj.length])
+
+  .range(["#efefef","#000"])
+
+  svg2.append("g")
+
+  .attr("class", "x axis")
+
+  .attr("transform", "translate(0," + height + ")")
+
+  .call(xAxis)
+
+  .selectAll("text")
+
+  .style("text-anchor", "end")
+
+  .attr("dx", "-.8em")
+
+  .attr("dy", "-.55em")
+
+  .attr("transform", "rotate(-90)" );
+
+
+
+  svg2.append("g")
+
+  .attr("class", "y axis")
+
+  .call(yAxis)
+
+  .append("text")
+
+  .attr("transform", "rotate(-90)")
+
+  .attr("y", 6)
+
+  .attr("dy", ".71em")
+
+  .style("text-anchor", "end")
+
+
+
+  svg2.append("g")
+
+  .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+
+  .selectAll(".textlabel")
+
+  .data(obj)
+
+  .enter()
+
+  .append("text")
+
+  .attr("class", "textlabel")
+
+  .attr("x", function(d){ return x(d["country"]) + (x.rangeBand()/-4); })
+
+  .attr("y", function(d){ return y(d["obs_value"]) - 25; })
+
+  .text(function(d){ return d3.format("")(d["obs_value"]); });
+
+
+
+  svg2.selectAll("bar")
+
+  .data(obj)
+
+  .enter().append("rect")
+
+  .style("fill",function(d,i){
+
+
+
+  return colors(i);
+
+  })
+
+  // .attr("class","rectangle")
+
+  .attr("x", function(d) {   return x(d.country); })
+
+  .attr("width", x.rangeBand())
+
+  .attr("y", function(d) { return y(d.obs_value); })
+
+  .attr("height", function(d) { return height - y(d.obs_value);})
+
+  .attr("height", 0)
+
+        .transition()
+
+        .duration(300)
+
+        // .ease(d)
+
+        .delay(function (d, i) {
+
+          return i *300;
+
+        })
+
+        .attr("y", function (d, i) {
+
+
+
+         console.log(y(d.obs_value)); return y(d.obs_value);
+
+        })
+
+        .attr("height", function (d, i) {
+
+          return height -y(d.obs_value);
+
+        })
+
+
+
+  });
+
+
+
+
+  </script>
+</body>
+</html>
